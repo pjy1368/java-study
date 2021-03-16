@@ -43,8 +43,17 @@ public class StreamStudy {
             .get("src/main/resources/fp/war-and-peace.txt")), StandardCharsets.UTF_8);
         List<String> words = Arrays.asList(contents.split("[\\P{L}]+"));
 
-        System.out.println(words);
-        System.out.println(words.size());
+        // System.out.println(words);
+        // System.out.println(words.size());
         // TODO 이 부분에 구현한다.
+        List<String> result = words.stream()
+            .distinct()
+            .filter(word -> word.length() > 12)
+            .sorted((word1, word2) -> word2.length() - word1.length())
+            .limit(100)
+            .map(String::toLowerCase)
+            .collect(Collectors.toList());
+
+        System.out.println(result);
     }
 }
