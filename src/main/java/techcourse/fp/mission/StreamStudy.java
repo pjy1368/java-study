@@ -43,8 +43,6 @@ public class StreamStudy {
             .get("src/main/resources/fp/war-and-peace.txt")), StandardCharsets.UTF_8);
         List<String> words = Arrays.asList(contents.split("[\\P{L}]+"));
 
-        // System.out.println(words);
-        // System.out.println(words.size());
         // TODO 이 부분에 구현한다.
         List<String> result = words.stream()
             .distinct()
